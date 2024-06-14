@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    {% include 'base/head.html' %}
+    
+</head>
+<body style="background-color: #343a40;">
+
+    {% include 'base/header.html' %}
+
+    {% block contenido %}{% endblock %}
+
+    {% include 'base/footer.html' %}
+
+    {% include 'base/scripts.html' %}
+
+    {% block scripts %}{% endblock %}
+
+</body>
+</html>

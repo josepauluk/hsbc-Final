@@ -1,0 +1,27 @@
+{% extends 'sender/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h3><span class="badge badge-warning">ADMIN</span></h3>
+    <h2>Send pending messages? </h2>
+    <p>
+        This will send all pending messages.
+    </p>
+</div>
+<div class="container">
+    <form class="form" action="{% url 'emailSendConfirm' %}" method='POST'>
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="poolLimit">Send pool limit</label>
+            <select class="form-control" id="poolLimit", name="limit">
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+            </select>
+          </div>
+        <input class="btn btn-danger btn-lg btn-block" type="submit" value='Send'>
+    </form>
+</div>
+
+{% endblock %}

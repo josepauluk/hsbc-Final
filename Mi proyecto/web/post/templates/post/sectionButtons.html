@@ -1,0 +1,110 @@
+{%load static%}
+<div class="d-flex px-4 pt-2 flex-column flex-md-row">
+  <!-- Button trigger modal  Selecciondas-->
+  <button
+    type="button"
+    class="btn btn-secondary m-1"
+    data-bs-toggle="modal"
+    data-bs-target="#Modal_Seleccionadas"
+    id="btn-selecciondas"
+    disabled
+  >
+    Descargar seleccion
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="Modal_Seleccionadas"
+    tabindex="-1"
+    aria-labelledby="Modal_SeleccionadasLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="Modal_SeleccionadasLabel">
+            Atención
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Está a punto de descargar {{cant_seleccionadas}} imagenes
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            onclick="$('#Modal_Seleccionadas').modal('hide');"
+          >
+            Confirmar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---Boton para descargar todas las imagenes trigger modal -->
+  <a
+    class="btn btn-secondary m-1"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+    href="{% url 'descargar_todas' %}"
+    >Descargar todo</a
+  >
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Atención</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          Está a punto de descargar {{cant_imagenes}} fotos
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Cerrar
+          </button>
+          <a
+            class="btn btn-primary"
+            href="{% url 'descargar_todas' %}"
+            onclick="$('#staticBackdrop').modal('hide');"
+            >Confirmar</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+{# When the token is created #}
+
+{% extends 'cottonLogger/loggerBase.html'%}
+
+{% block forms %}
+
+<div class="container">
+    <h4>Se ha enviado un token de acceso a la dirección de correo electrónico solicitada.</h4>
+    <a class="btn btn-secondary btn-block" href="{% url 'logger_main' %}" role="button">Volver al inicio</a>
+</div>
+
+{% endblock %}

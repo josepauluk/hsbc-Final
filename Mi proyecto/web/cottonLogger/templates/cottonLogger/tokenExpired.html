@@ -1,0 +1,17 @@
+{# When the token exists but has expired #}
+
+{% extends 'cottonLogger/loggerBase.html'%}
+
+{% block forms %}
+
+<div class="jumbotron">
+    <h1><span class="badge badge-warning">Error</span></h1>
+</div>
+<br>
+<div class="container">
+    <h4>Lo sentimos, este token de acceso ya ha expirado.</h4>
+    <h4>Por favor, intente crear uno nuevo.</h4>
+    <a class="btn btn-secondary btn-block" href="{% url 'logger_main' %}" role="button">Volver al inicio</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% load static %}
+
+<header>
+
+    <!-- IMAGE -->
+    <!--
+    <div class="container w-100 d-flex justify-content-center">
+        <img src="{%static 'img/HCBC.png'%}" class="card-img-top" alt="..." style="height:150px; width: auto ">
+    </div>
+    -->
+    <!-- NAVIGATION -->
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler"
+                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="ms-3 me-3 d-flex"
+                    style="height: 40px; width: 40px; background-color: {% if user.is_superuser %}#ffc107{% else %}white{% endif %}; border-radius: 100%; align-items: center; justify-content: center;">
+                <img src="{% static 'post/logo.png' %}" alt="hsbc logo" style="width: 32px; height: auto; {% if user.is_superuser %}filter: grayscale(100%) contrast(400%);{% endif %}">
+            </div>
+
+            <div class="collapse navbar-collapse p-2 p-md-0" id="navbarToggler">
+                <a class="nav-item mx-0 navbar-brand d-flex" href="{% url 'post_list' %}" style="font-size: x-large; align-items: center; justify-content: center;">
+                    GALERIA
+                </a>
+                <span class="nav-item navbar-brand ms-md-auto me-md-4 d-flex d-md-block text-secondary" style="justify-content: center;">
+                    {% if not user.is_superuser %}
+                    Bienvenido, {{ user.first_name }}
+                    {% endif %}
+                </span>
+                <ul class="navbar-nav">
+                    {% if user.is_superuser %}
+                    <li class="nav-item d-flex d-md-block" style="justify-content: center;">
+                        <a class="mx-2 my-1 btn btn-outline-warning" href="{% url 'upload' %}" role="button">Cargar</a>
+                    </li>
+                    <li class="nav-item d-flex d-md-block" style="justify-content: center;">
+                        <a class="mx-2 my-1 btn btn-outline-warning" href="{% url 'emailSend' %}" role="button">Mails</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item d-flex d-md-block" style="justify-content: center;">
+                        <a class="mx-2 my-1 btn btn-outline-secondary" href="{% url 'logout' %}" role="button">Cerrar sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</header>

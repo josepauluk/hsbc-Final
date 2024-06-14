@@ -1,0 +1,17 @@
+{# When token creation limit #}
+
+{% extends 'cottonLogger/loggerBase.html'%}
+
+{% block forms %}
+
+<div class="jumbotron">
+    <h1><span class="badge badge-warning">Error</span></h1>
+</div>
+<br>
+<div class="container">
+    <h4>Has alcanzado el limite de creación de tokens. Debes esperar al menos cinco minutos antes de crear otro token de acceso.</h4>
+    <h4>Por favor, revisa tu correo electrónico.</h4>
+    <a class="btn btn-secondary btn-block" href="{% url 'logger_main' %}" role="button">Volver al inicio</a>
+</div>
+
+{% endblock %}

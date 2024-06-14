@@ -1,0 +1,9 @@
+{% extends 'base.html' %} 
+{%load static%}
+
+{%block contenido%}
+  <form method="POST" enctype="multipart/form-data" style="margin-top: 20px;">
+    {% csrf_token %}
+  <input  type="file" name="images" multiple accept="image/*">
+  <button type="submit" class="btn btn-success">Send</button>
+{%endblock%}

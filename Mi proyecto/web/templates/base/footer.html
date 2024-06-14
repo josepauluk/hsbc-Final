@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="navbar fixed-bottom navbar-dark bg-dark d-none d-md-flex" data-bs-theme="dark">
+    <span class="nav-item navbar-brand ms-4 d-none d-md-block text-secondary">
+        © Cotton SP 2023 
+        {% if user.is_superuser %}
+        <span class="ms-2 text-warning"> / you are logged as ADMIN.</span>
+        {% endif %}
+    </span>
+    <a class="navbar-brand ms-auto me-4" href="https://www.cottonsp.com.ar/" target="_blank">
+        <img src="{% static 'img/powered-by-cottonsp-software-factory-PNG.png' %}" width="166" height="45" alt="">
+    </a>
+</div>
+<div class="navbar navbar-dark bg-dark d-flex d-md-none" data-bs-theme="dark">
+    <a class="navbar-brand mx-auto" href="https://www.cottonsp.com.ar/" target="_blank">
+        <img src="{% static 'img/powered-by-cottonsp-software-factory-PNG.png' %}" width="166" height="45" alt="">
+    </a>
+</div>

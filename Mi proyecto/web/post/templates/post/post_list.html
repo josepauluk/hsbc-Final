@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %} Galería {%endblock titulo %}
+
+{% block contenido %}
+<div>
+  <section class="section">
+    <form method="POST" enctype="multipart/form-data" action="{% url 'descargar_fotos_seleccionadas' %}"
+      id="formulario-descargar-selecciondas">
+      {% csrf_token %}
+
+      {%include 'post/sectionButtons.html'%}
+
+
+      {%include 'post/list.html'%}
+
+
+    </form>
+
+    {% include 'post/paginator.html' %}
+
+  </section>
+</div>
+{% endblock contenido %}
+
+{% block scripts %}
+{% endblock %}

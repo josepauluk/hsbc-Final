@@ -1,0 +1,47 @@
+@import url('var.css');
+
+.banner {
+    background-image: url('../img/banner.png');
+    height: 200px;
+    margin: 2%;
+}
+.navbar{
+    background-color: var(--main-color);
+}
+/* iconos  */
+i {
+    font-size: 25px;
+    color: var(--main-color);
+}
+/*Botones */
+.btn-primary{
+    background-color: var(--main-color)!important;
+}
+
+/*footer*/
+.footer-style{
+    background-color: #006EA5;
+    color: white;
+}
+.imagen-fondo {
+    min-height: 100vh;
+    background: url('../img/fotocamara.png')no-repeat center center;
+    background-size: cover;
+
+}
+.register {
+    background-color: #006EA5;
+}
+.login-fondo{
+    min-height: 100vh;
+    background: url('../img/frente.png')no-repeat center center;
+    background-size: cover;
+}
+.titulo-h1 {
+    color: #002250;
+}
+.pagination a{
+    display: flex;
+    margin-top: 1rem;
+    text-align: center;
+}

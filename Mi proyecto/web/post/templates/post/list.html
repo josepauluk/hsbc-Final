@@ -1,0 +1,105 @@
+{%load static%}
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 mx-2">
+  {% for post in posts %}
+  <div class="col my-2">
+
+    <div class="overflow-hidden d-flex align-items-center rounded-top"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal{{post.id}}"
+        style="background-color: black; height: 19rem;">
+      <img class="w-100 h-100 object-fit-cover" src="{{post.foto.url}}" alt="imagen {{post.id}}">
+    </div>
+    <div class="bg-dark rounded-bottom p-2">
+      <input type="checkbox"
+          class="btn-check"
+          id="btncheck{{post.id}}"
+          autocomplete="off"
+          name="imagenes_descarga[]"
+          value="{{ post.id }}">
+      <label class="btn btn-sm btn-outline-secondary" for="btncheck{{post.id}}">Seleccionar</label>
+      <a class="btn btn-sm btn-outline-secondary" href="{% url 'descargar_imagen' post.id %}">Descargar</a>
+    </div>
+    <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+        <div class="container">
+          <img class="img-fluid" src="{{post.foto.url}}" alt="Imagen">
+        </div>
+      </div>
+    </div>
+    <!--
+
+style="height: 16rem;"
+
+    <div class="card text-bg-dark" style="height: 10rem">
+
+      <img src="{{post.foto.url}}" class="card-img-top" alt="Imagen">
+
+      <div class="card-img-overlay">
+        <div class="card-text">
+          <input type="checkbox" class="btn-check" id="btncheck{{post.id}}" autocomplete="off" name="imagenes_descarga[]"
+          value="{{ post.id }}">
+          <label class="btn btn-sm btn-outline-light" for="btncheck{{post.id}}">Seleccionar</label>
+        </div>
+        <div class="card-text mt-3">
+          <label class="btn btn-dark"            >Ver</label>
+        </div>
+        <div class="modal fade" id="exampleModal{{post.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+            <div class="container">
+              <img class="img-fluid" src="{{post.foto.url}}" alt="Imagen">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer"></div>
+
+    </div>
+    -->
+  </div>
+  {% endfor %}
+</div>
+
+<!--
+
+<div class="grid">
+    {% for post in posts %}
+    <div
+      class="cards item item--medium"
+      style="background-image: url('{{post.foto.url}}'); "
+    >
+      <div class="item__details" style="max-height:50px">
+        <div style="float: right">
+          <a
+            id="link_swipebox"
+            class="swipebox"
+            href="{{post.foto.url}} "
+            data-lightbox="example-set"
+            data-title="Haga click en cualquier lugar fuera de la imagen o en la X de la derecha para cerrar."
+            data-alt="An example description."
+          ><span><i class="bi bi-arrows-angle-expand"></i></span
+          ></a>
+        </div>
+
+        <span
+          ><a
+            href="{% url 'descargar_imagen' post.id %}"
+            download="{{ post.foto.url }}"
+            ><i class="bi bi-download"></i></a></span
+        >&nbsp;&nbsp; {% if user.is_superuser %}
+        <span
+          ><a href="{% url 'eliminar_imagen' post.id %}"
+            ><i class="bi bi-trash" aria-hidden="true"></i></a></span
+        >&nbsp;&nbsp; {% endif %}
+        <span
+          ><input
+            class="form-check-input input-subir-imagenes"
+            type="checkbox"
+            name="imagenes_descarga[]"
+            value="{{ post.id }}"
+        /></span>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+-->

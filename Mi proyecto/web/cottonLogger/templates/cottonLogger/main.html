@@ -1,0 +1,27 @@
+{% extends 'cottonLogger/loggerBase.html' %}
+
+{% block forms %}
+
+<form action="{% url 'logger_tokenCreate' %}" method="post">
+    {% csrf_token %}
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <p><em>Podes recibir el link de acceso a tu correo</em></p>
+    <div class="row">
+      <div class="col-md-6 mb-4">
+        <div class="form-outline">
+          <input type="email" id="email" class="form-control" name="email"/>
+          <label class="form-label" for="email">Email</label>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="form-outline">
+          <button type="submit" class="btn btn-primary btn-block mb-4">
+          Enviar el link de acceso
+          </button>
+        </div>
+      </div>
+    </div>
+</form>
+
+
+{% endblock %}
